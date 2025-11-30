@@ -3,6 +3,7 @@ const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
 const helpRegex = /please help|assist me/i; // | means or/either and i means ignore case
+const dollarRegex = /dollars/i;
 
 const denyList = [helpRegex];
 
