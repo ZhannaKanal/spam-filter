@@ -2,7 +2,7 @@ const messageInput = document.getElementById("message-input");
 const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
-const helpRegex = /please help/i; //i means ignore case
+const helpRegex = /please help|assist me/i; // | means or/either and i means ignore case
 
 const isSpam = (msg) => helpRegex.test(msg);
 
