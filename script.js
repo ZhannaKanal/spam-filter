@@ -2,14 +2,13 @@ const messageInput = document.getElementById("message-input");
 const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
-const helpRegex = /please help|assist me/i; // | means or/either and i means ignore case
-const dollarRegex = /[0-9]+ (hundred|thousand|million|billion)? dollars/i;
+const helpRegex = /please help|assist me/i;
+const dollarRegex = /[0-9]+\s*(?:hundred|thousand|million|billion)?\s+dollars/i;
 
-const denyList = [helpRegex.dollarRegex];
 
-const isSpam = (msg) => 
-denyList.some(regex=> regex.test(msg));
-;
+const denyList = [helpRegex, dollarRegex];
+
+const isSpam = (msg) => denyList.some((regex) => regex.test(msg));
 
 checkMessageButton.addEventListener("click", () => {
   if (messageInput.value === "") {
@@ -22,4 +21,3 @@ checkMessageButton.addEventListener("click", () => {
     : "This message does not seem to contain any spam.";
   messageInput.value = "";
 });
-
